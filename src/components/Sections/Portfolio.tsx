@@ -39,76 +39,86 @@ Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
 const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, description, image}}) => {
-    const [mobile, setMobile] = useState(false);
-    const [showOverlay, setShowOverlay] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const linkRef = useRef<HTMLAnchorElement>(null);
+  const [mobile, setMobile] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const linkRef = useRef<HTMLAnchorElement>(null);
 
-    useEffect(() => {
-      // 모바일 여부 설정 (hydration 에러 방지)
-      if (isMobile) 
-        setMobile(true);
-    }, []);
-    useDetectOutsideClick(linkRef, () => setShowOverlay(false));
+  useEffect(() => {
+    // 모바일 여부 설정 (hydration 에러 방지)
+    if (isMobile) setMobile(true);
+  }, []);
+  useDetectOutsideClick(linkRef, () => setShowOverlay(false));
 
-    const handleItemClick = useCallback(
-      (event: MouseEvent<HTMLElement>) => {
-        event.preventDefault(); // 링크 이동 막기
-        setIsModalOpen(true); // 모달 열기
-      },
-      []
-    );
+  const handleItemClick = useCallback(
+    (event: MouseEvent<HTMLElement>) => {
+      event.preventDefault(); // 링크 이동 막기
+      setIsModalOpen(true); // 모달 열기
+    },
+    []
+  );
 
-    return (
-      <>
-        {/* 오버레이 */}
-        <a
-          className={classNames(
-            'absolute inset-0 h-full w-full  bg-gray-900 transition-all duration-300',
-            {'opacity-0 hover:opacity-80': !mobile},
-            showOverlay ? 'opacity-80' : 'opacity-0',
-          )}
-          href={url}
-          onClick={handleItemClick}
-          ref={linkRef}
-        >
-          <div className="relative h-full w-full p-4">
-            <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
-              <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
-              <p className="text-xs text-white opacity-100 sm:text-sm">{description}</p>
-            </div>
-            <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
-          </div>
-        </a>
-
-        {/* 이미지 확대 모달 */}
-        {isModalOpen && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-            onClick={() => setIsModalOpen(false)} // 배경 클릭 시 닫기
-          >
-            <div
-              className="relative max-w-3xl w-full mx-4"
-              onClick={(e) => e.stopPropagation()} // 이미지 클릭 시 닫힘 방지
-            >
-              <button
-                className="absolute top-2 right-2 rounded-full bg-black/50 p-1 hover:bg-black/70"
-                onClick={() => setIsModalOpen(false)}
-              >
-                <XMarkIcon className="h-6 w-6 text-white" />
-              </button>
-              <Image
-                alt={title}
-                className="w-full h-auto rounded-lg shadow-lg object-contain"
-                height={800}
-                src={image}                
-                width={1200}
-              />
-              <p className="text-center text-white mt-2">{title}</p>
-            </div>
-          </div>
+  return (
+    <>
+      {/* 오버레이 */}
+      <a
+        className={classNames(
+          'absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300',
+          {'opacity-0 hover:opacity-80': !mobile},
+          showOverlay ? 'opacity-80' : 'opacity-0',
         )}
-      </>
-    );
-  }
-);
+        href={url}
+        onClick={handleItemClick}
+        ref={linkRef}
+      >
+        <div className="relative h-full w-full p-4">
+          <div className="flex h-full w-full flex-col gap-y-2 overflow-y-auto overscroll-contain">
+            <h2 className="text-center font-bold text-white opacity-100">{title}</h2>
+            <p className="text-xs text-white opacity-100 sm:text-sm">{description}</p>
+          </div>
+          <ArrowTopRightOnSquareIcon className="absolute bottom-1 right-1 h-4 w-4 shrink-0 text-white sm:bottom-2 sm:right-2" />
+        </div>
+      </a>
+
+      {/* 이미지 확대 모달 */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setIsModalOpen(false)} // 배경 클릭 시 닫기
+        >
+          <div
+            className="
+              relative
+              w-2/3 h-2/3       /* 화면 크기의 2/3 고정 */
+              max-w-5xl         /* 너무 커지지 않도록 상한 제한 */
+              rounded-lg
+              bg-neutral-900
+              p-4
+              shadow-2xl
+              flex flex-col items-center justify-center
+            "
+            onClick={(e) => e.stopPropagation()} // 이미지 클릭 시 닫힘 방지
+          >
+            {/* 닫기 버튼 */}
+            <button
+              className="absolute top-3 right-3 rounded-full bg-black/50 p-1 hover:bg-black/70"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <XMarkIcon className="h-6 w-6 text-white" />
+            </button>
+
+            {/* 확대된 이미지 */}
+            <Image
+              alt={title}
+              className="w-full h-full object-contain rounded-md"
+              height={800}
+              src={image}
+              width={1200}              
+            />
+            <p className="text-center text-white mt-2">{title}</p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+});
