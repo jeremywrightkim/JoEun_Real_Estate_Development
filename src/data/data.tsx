@@ -7,11 +7,20 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
-import heroImage from '../images/new-york-city-sunset.jpg';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
+import heroImage from '../images/MS_hotel.jpg';
+import pp1 from '../images/portfolio/portfolio-1.jpg';
+import pp2 from '../images/portfolio/portfolio-2.jpg';
+import pp3 from '../images/portfolio/portfolio-3.jpg';
+import pp4 from '../images/portfolio/portfolio-4.jpg';
+import pp5 from '../images/portfolio/portfolio-5.jpg';
+import pp6 from '../images/portfolio/portfolio-6.jpg';
+import pp7 from '../images/portfolio/portfolio-7.jpg';
+import pp8 from '../images/portfolio/portfolio-8.jpg';
+import y_sample1 from '../images/portfolio/y_sample1.jpg';
+import y_sample2 from '../images/portfolio/y_sample2.jpg';
+import y_sample3 from '../images/portfolio/y_sample3.jpg';
+import y_sample4 from '../images/portfolio/y_sample4.jpg';
+import y_sample5 from '../images/portfolio/y_sample5.jpg';
 import profilepic from '../images/profilepic.jpg';
 import {
   About,
@@ -27,8 +36,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: '보산개발㈜',
+  description: "보산개발㈜ 웹페이지",
 };
 
 /**
@@ -101,30 +110,84 @@ export const aboutData: About = {
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'none',
+    title: '여의도 Y빌딩 재건축 프로젝트',
+    description: '자료샘플1',
     url: '',
-    image: porfolioImage1,
+    image: y_sample1,
   },
   {
-    title: 'Project title 2',
-    description: 'none',
+    title: '여의도 Y빌딩 재건축 프로젝트',
+    description: '자료샘플2',
     url: '',
-    image: porfolioImage2,
+    image: y_sample2,
   },
   {
-    title: 'Project title 3',
-    description: 'none',
+    title: '여의도 Y빌딩 재건축 프로젝트',
+    description: '자료샘플3',
     url: '',
-    image: porfolioImage3,
+    image: y_sample3,
   },
   {
-    title: 'Project title 4',
-    description: 'none',
+    title: '여의도 Y빌딩 재건축 프로젝트',
+    description: '자료샘플4',
     url: '',
-    image: porfolioImage4,
+    image: y_sample4,
   },
-  
+  {
+    title: '여의도 Y빌딩 재건축 프로젝트',
+    description: '자료샘플5',
+    url: '',
+    image: y_sample5,
+  },
+  {
+    title: 'sample1',
+    description: '샘플1',
+    url: '',
+    image: pp1,
+  },
+  {
+    title: 'sample2',
+    description: '샘플2',
+    url: '',
+    image: pp2,
+  },
+  {
+    title: 'sample3',
+    description: '샘플3',
+    url: '',
+    image: pp3,
+  },
+  {
+    title: 'sample4',
+    description: '샘플4',
+    url: '',
+    image: pp4,
+  },
+  {
+    title: 'sample5',
+    description: '샘플5',
+    url: '',
+    image: pp5,
+  },
+  {
+    title: 'sample6',
+    description: '샘플6',
+    url: '',
+    image: pp6,
+  },
+  {
+    title: 'sample7',
+    description: '샘플7',
+    url: '',
+    image: pp7,
+  },
+  {
+    title: 'sample8',
+    description: '샘플8',
+    url: '',
+    image: pp8,
+  },
+
 ];
 
 /**
@@ -229,6 +292,11 @@ export const contact: ContactSection = {
       type: ContactType.Location,
       text: '부산시, 해운대구', 
       href: 'https://www.google.com/maps/place/data=!3m1!4b1!4m5!3m4!1s0x35688d5ea057a849:0x380aabbc96140ef0!8m2!3d35.1596932!4d129.1595939',
+    },
+    {
+      type: ContactType.Location,
+      text: '계열사: 보산부동산㈜, MS호텔', 
+      href: 'https://maps.app.goo.gl/LFD5fE9L7kyW841n9',
     },
   ],
 };
