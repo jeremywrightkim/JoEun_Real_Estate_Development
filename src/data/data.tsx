@@ -36,8 +36,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: '보산개발㈜',
-  description: "보산개발㈜ 웹페이지",
+  title: '조은개발㈜',
+  description: "조은개발㈜ 웹페이지",
 };
 
 /**
@@ -59,11 +59,11 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `보산개발㈜`,
+  name: `조은개발㈜`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        보산개발㈜은 2003년 설립 이래 부산을 중심으로 
+        조은개발㈜은 2003년 설립 이래 부산을 중심으로 
         <strong className="text-stone-100"> 주거 · 상업 · 복합개발 </strong> 
         사업을 추진해온 부동산 개발 및 컨설팅 전문기업입니다.        
         창업초기부터 
@@ -92,11 +92,11 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `김광섭, 보산개발㈜ 대표이사, 1956년생.
-  1981년부터 부동산 중개 · 개발 업계에 몸담아 오며, 40년이 넘는 경험을 바탕으로 다양한 주거 및 상업시설 프로젝트를 성공적으로 이끌어왔습니다. 이를 통해 보산개발㈜은 안정적인 사업 수행 능력과 신뢰성을 인정받고 있으며, 앞으로도 지역 발전과 도시가치 재고를 위한 혁신적인 개발사업을 지속적으로 추진할 계획입니다.`,
+  description: `김광섭, 조은개발㈜ 대표이사, 1956년생.
+  1981년부터 부동산 중개 · 개발 업계에 몸담아 오며, 40년이 넘는 경험을 바탕으로 다양한 주거 및 상업시설 프로젝트를 성공적으로 이끌어왔습니다. 이를 통해 조은개발㈜은 안정적인 사업 수행 능력과 신뢰성을 인정받고 있으며, 앞으로도 지역 발전과 도시가치 재고를 위한 혁신적인 개발사업을 지속적으로 추진할 계획입니다.`,
   aboutItems: [
     {label: 'Nationality', text: '대한민국', Icon: FlagIcon},
-    {label: 'Company', text: '보산개발㈜', Icon: BuildingOffice2Icon},
+    {label: 'Company', text: '조은개발㈜', Icon: BuildingOffice2Icon},
     {label: 'Location', text: '부산시, 해운대구', Icon: MapIcon},
     {label: 'Foundation day', text: '2003.01.13.', Icon: CalendarIcon},
     {label: 'Category', text: '토지매입, 재개발, 재건축 컨설팅, 프로젝트 파이낸싱', Icon: SparklesIcon},
@@ -194,6 +194,12 @@ export const portfolioItems: PortfolioItem[] = [
  * Resume section -- TODO: Standardize resume contact format or offer MDX
  */
 export const education: TimelineItem[] = [
+    {
+    date: '20260304',
+    location: '부산 해운대구',
+    title: `'조은개발'로 상호변경`,
+    content: '',
+  },
   {
     date: '2025-',
     location: '부산 해운대구',
