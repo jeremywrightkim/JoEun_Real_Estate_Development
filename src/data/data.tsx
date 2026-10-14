@@ -195,9 +195,9 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
     {
-    date: '20260304',
+    date: '2026.03',
     location: '부산 해운대구',
-    title: `'조은개발'로 상호변경`,
+    title: `'조은개발주식회사'로 상호변경`,
     content: '',
   },
   {
